@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/viewmodal/onboarding1.dart';
+import 'package:food_delivery/viewmodal/onboarding2.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'authiucation/login.dart';
+import 'components/Splash_Screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,30 +13,35 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  static final ThemeData theme = ThemeData(
+    primaryColor: const Color(0xFF2E7D4A),
+    scaffoldBackgroundColor: Colors.white,
+    textTheme: GoogleFonts.interTextTheme(),
+    inputDecorationTheme: const InputDecorationTheme(
+      border: OutlineInputBorder(),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFF2E7D4A),
+        foregroundColor: Colors.white,
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ),
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Deo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      title: 'Kupa Example',
+      theme: theme,
+      debugShowCheckedModeBanner: false,
+      home: const SplashScreen(),
+      routes: {
+        '/onboarding1': (_) => const Onboarding1(),
+        '/onboarding2': (_) => const Onboarding2(),
+        '/login': (_) => const LoginScreen(),
+      },
     );
   }
 }
