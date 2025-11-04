@@ -37,11 +37,7 @@ class MyApp extends StatelessWidget {
       theme: theme,
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
-      routes: {
-        '/onboarding1': (_) => const Onboarding1(),
-        '/onboarding2': (_) => const Onboarding2(),
-        '/login': (_) => const LoginScreen(),
-      },
+
     );
   }
 }

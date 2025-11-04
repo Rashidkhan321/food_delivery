@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/authiucation/login.dart';
+
+import 'onboarding2.dart';
 
 class Onboarding1 extends StatelessWidget {
   const Onboarding1({super.key});
@@ -65,7 +68,8 @@ class Onboarding1 extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed('/onboarding2');
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Onboarding2()));
+
                   },
                   child: const Text('Continue'),
                 ),
@@ -74,7 +78,10 @@ class Onboarding1 extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                  onPressed: () => Navigator.of(context).pushReplacementNamed('/login'),
+                  onPressed: ()  {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+
+                  },
                   style: OutlinedButton.styleFrom(
                     foregroundColor: primary,
                     side: BorderSide(color: primary.withOpacity(0.15)),

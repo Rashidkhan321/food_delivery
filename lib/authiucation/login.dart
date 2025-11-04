@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/authiucation/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -91,10 +92,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 12),
-              Center(child: Text("Don’t have an account? Sign Up")),
+              Center(child: InkWell(
+                  onTap: (){
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));
+
+                  },
+                  child: Text("Don’t have an account? Sign Up"))),
               const SizedBox(height: 16),
               OutlinedButton.icon(
-                onPressed: () {},
+                onPressed: () {
+
+                },
                 icon: Image.asset('assets/images/logo.png', width: 18, height: 18),
                 label: const Text('Sign in with Google'),
               ),

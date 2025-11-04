@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/viewmodal/onboarding1.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     // show splash for 1.4 seconds then go to onboarding1
     Timer(const Duration(milliseconds: 1400), () {
-      Navigator.of(context).pushReplacementNamed('/onboarding1');
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Onboarding1()));
     });
   }
 

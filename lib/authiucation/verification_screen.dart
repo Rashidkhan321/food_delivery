@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/viewmodal/success_screen.dart';
 
 class VerificationScreen extends StatelessWidget {
   const VerificationScreen({super.key});
@@ -60,7 +61,8 @@ class VerificationScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/success');
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SuccessScreen()));
+
                   },
                   child: const Text('Continue'),
                 ),
