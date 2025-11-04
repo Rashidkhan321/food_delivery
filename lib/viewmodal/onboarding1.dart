@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/authiucation/login.dart';
+import 'package:food_delivery/components/CustomButton.dart';
+
+import 'onboarding2.dart';
 
 class Onboarding1 extends StatelessWidget {
   const Onboarding1({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final primary = const Color(0xFF2E7D4A);
+    final primary = const Color(0xFF000000);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -20,7 +24,7 @@ class Onboarding1 extends StatelessWidget {
                   Image.asset('assets/images/logo.png', width: 26, height: 26),
                   const SizedBox(width: 8),
                   const Text(
-                    'Kupa',
+                    'black Cupe',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   )
                 ],
@@ -63,18 +67,22 @@ class Onboarding1 extends StatelessWidget {
               // Continue and Sign in buttons
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacementNamed('/onboarding2');
+                child: CustomButton(
+                  onPress: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Onboarding2()));
+
                   },
-                  child: const Text('Continue'),
+                  title: 'Continue',
                 ),
               ),
               const SizedBox(height: 10),
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                  onPressed: () => Navigator.of(context).pushReplacementNamed('/login'),
+                  onPressed: ()  {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+
+                  },
                   style: OutlinedButton.styleFrom(
                     foregroundColor: primary,
                     side: BorderSide(color: primary.withOpacity(0.15)),

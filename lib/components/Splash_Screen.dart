@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/viewmodal/onboarding1.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,29 +15,34 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     // show splash for 1.4 seconds then go to onboarding1
     Timer(const Duration(milliseconds: 1400), () {
-      Navigator.of(context).pushReplacementNamed('/onboarding1');
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Onboarding1()));
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF2E7D4A), // green background
+      backgroundColor: const Color(0xFF000000), // green background
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // logo image
-              Image.asset(
-                'assets/images/logo.png',
-                width: 96,
-                height: 96,
-                fit: BoxFit.contain,
+               Center(
+                child: ClipOval(
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    width: 220,
+                    height: 220,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
+              // logo image
+
               const SizedBox(height: 18),
               const Text(
-                'Kupa',
+                'black Cupe',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 36,

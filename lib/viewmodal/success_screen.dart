@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/viewmodal/userinterface/HomeScreen.dart';
+
+import '../Components/CustomButton.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final primary = const Color(0xFF2E7D4A);
+    final primary = const  Color(0xFF000000);
 
     return Scaffold(
       body: SafeArea(
@@ -15,12 +18,17 @@ class SuccessScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/images/success.png',
-                  width: 140,
-                  height: 140,
-                  fit: BoxFit.contain,
+                Center(
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/images/success.png',
+                      width: 260,
+                      height: 260,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
+
                 const SizedBox(height: 24),
                 const Text(
                   'Congratulations!',
@@ -35,11 +43,18 @@ class SuccessScreen extends StatelessWidget {
                 const SizedBox(height: 28),
                 SizedBox(
                   width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () =>
-                        Navigator.pushReplacementNamed(context, '/login'),
-                    child: const Text('Get Started'),
-                  ),
+                  child:
+
+                  CustomButton(title: 'Get Started', onPress: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomeScreen(),
+                      ),
+                    );
+                  })
+
+
                 ),
               ],
             ),
