@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:food_delivery/viewmodal/onboarding1.dart';
+import 'package:food_delivery/viewmodal/onboarding2.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'authiucation/login.dart';
 import 'components/Splash_Screen.dart';
 
 void main() {
@@ -12,54 +14,34 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   static final ThemeData theme = ThemeData(
-    brightness: Brightness.light,
     primaryColor: const Color(0xFF2E7D4A),
-    //colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2E7D4A)),
-    scaffoldBackgroundColor: Colors.black.withOpacity(0.3),
-    textTheme: GoogleFonts.interTextTheme().copyWith(
-      bodyLarge: const TextStyle(color: Colors.white),
-      bodyMedium: const TextStyle(color: Colors.white),
-    ),
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-      fillColor: Colors.black,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: Colors.grey.shade300),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Color(0xFF2E7D4A), width: 1.5),
-      ),
+    scaffoldBackgroundColor: Colors.white,
+    textTheme: GoogleFonts.interTextTheme(),
+    inputDecorationTheme: const InputDecorationTheme(
+      border: OutlineInputBorder(),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFF2E7D4A),
         foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
-    ),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
-      elevation: 0,
-      centerTitle: true,
-    ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: Colors.white,
-      selectedItemColor: Color(0xFF000000),
-      unselectedItemColor: Colors.grey,
-      showUnselectedLabels: true,
     ),
   );
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'black Cupe ',
+      title: 'Kupa Example',
       theme: theme,
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
+      routes: {
+        '/onboarding1': (_) => const Onboarding1(),
+        '/onboarding2': (_) => const Onboarding2(),
+        '/login': (_) => const LoginScreen(),
+      },
     );
   }
 }
