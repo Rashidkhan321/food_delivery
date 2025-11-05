@@ -39,6 +39,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 fontWeight: FontWeight.bold,
 
               ),
+
             ),
             const SizedBox(height: 10),
             Text(
